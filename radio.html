@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <p>Turning the light bulb on and off</p>
+    <p>Created by Andrew Ripka</p>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <form method="get" action="">
+        <input onclick="bulb(1)" type="radio" name="switch" value="on">On <br />
+        <input onclick="bulb(0)" type="radio" name="switch" value="off" checked="checked">Off <br />
+        <input type="submit" name="submit" value="Run"><br />
+    </form>
+    <img src="bulboff.gif" id="bulb">   
+</body>
+<script>
+    function bulb(x){
+        let pic = document.getElementById("bulb");
+        if(x == 1){
+            pic.src="bulbon.gif";
+        }
+        else{
+            pic.src="bulboff.gif";
+        }
+    }
+</script>
+</html>

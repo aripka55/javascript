@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" href="addelements.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <ul id="list">
+        <li id="element1">Kayti</li>
+        <li id="element2">Deven</li>
+        <li id="element3">Josiah</li>
+    </ul>
+
+    <br />
+    <input id="textbox" type="text">
+    <br />
+    
+    <div class="btn" onclick="addLI()">Add Element</div>
+
+</body>
+
+<script>
+    function addLI(){
+        // Get the user's input from the textbox
+        let name = document.getElementById("textbox").value;
+
+        // Clear the textbox so the text does not remain
+        document.getElementById("textbox").value = "";
+
+        // 
+        let ul = document.getElementById("list");
+        let li = document.createElement("li");
+        let numChildren = ul.children.length + 1;
+
+        // Adds id="element" to <li>
+        li.setAttribute("id", "element"+ numChildren);
+
+        li.className = "fakeClass";
+
+
+        li.appendChild(document.createTextNode("Tayvin"));
+        ul.appendChild(li);
+    }
+</script>
+</html>

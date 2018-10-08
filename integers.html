@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <form class="" action="" method="post">
+        <input type="text">
+    </form>
+        function getPositiveSum(arr) {
+            var result = 0;
+            
+            for (x in arr) {
+                if (arr[x]>0) {
+                    result += arr[x];
+                }
+            }
+        
+            return result;
+        }
+        
+        function getPositiveEvenSum(arr) {
+            var result = 0;
+            
+            for (x in arr) {
+                if (arr[x]>0 && arr[x]%2==0) {
+                    result += arr[x];
+                }
+            }
+        
+            return result;
+        
+        }
+
+    
+</body>
+</html>

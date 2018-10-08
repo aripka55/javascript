@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Country Dynamic Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body onload="hideInputs()">
+    <form action="" method="get">
+        <div id="div_country">
+            <select name="country" id="country" onChange="showState()">
+                <option value="United States">United States</option>
+                <option value="Ukraine">Ukraine</option>
+            </select>
+        </div>
+    <br />
+
+    <div id="div_province">
+        <label>Province: </label>
+        <input type="text" id="state" placeholder="PA" onchange="showCityA()">
+     </div>
+    <br />
+
+    <div id="div_states">
+            <label>State:</label>
+            <input type="text" id="state" placeholder="PA" onchange="showCityB()">
+    </div>
+    <br />
+
+    <div id="div_cityA">
+        <label>City:</label>
+        <select name="cityA" id="cityA">
+            <option value="SC">State College</option>
+            <option value="LT">Lewistown</option>
+        </select>
+    </div>
+    <br />
+
+    <div id="div_cityB">
+            <label>City:</label>
+            <select name="cityA" id="cityA">
+                <option value="SC">State College</option>
+                <option value="LT">Lewistown</option>
+            </select>
+        </div>
+
+    </form>
+    
+</body>
+<script>
+    function hideInputs(){
+        document.getElementById('div_province').style.display = "none";
+        document.getElementById('div_states').style.display = "none";
+        document.getElementById('div_cityA').style.diplay = "none";
+        document.getElementById('div_cityB').style.display = "none";
+    }
+
+    function showState(){
+        let aValue = document.getElementById("country_select").value;
+
+    }
+
+    let x = document.getElementById("country").value;
+
+    if(x == 'United States'){
+        document.getElementById('div_state').style.display = "block";
+        document.getElementById('giv_province').style.display = "none";
+    }
+    else if(x == 'Ukraine'){
+
+    }
+        document.getElementById('').style.display = "block";
+    
+</script>
+</html>

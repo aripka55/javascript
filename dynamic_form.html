@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body onload="hideInputs()">
+    <form action="" method="post">
+        First Name: <input onkeydown="unHideInputs()" type="text" name="firstname" id="firstname" placeholder="Firstname"> 
+        <br />
+        <label id="lastnamelabel">Last Name:</label> <input type="text" name="lastname" id="lastname" placeholder="Lastname">
+        <br />
+        <label class="city">City:</label><input type="text" name="lastname" class="city" placeholder="City" />
+    </form>
+    
+</body>
+<script>
+    function hideInputs(){ // Function that hides the inputs
+        document.getElementById("lastname").style.display = "none"; // Hides the last name
+        document.getElementById("lastnamelabel").style.display = "none";
+        let city = document.getElementsByClassName("city");
+        
+        for(i=0; i < city.length; i++){
+            city[i].style.display = "none";
+        }
+    }
+
+    function unHideInputs(){
+        document.getElementById("lastname").style.display = "inline";
+        document.getElementById("lastnamelabel").style.display = "inline";
+        let city = document.getElementsByClassName("city");
+
+        for(i=0; i < city.length; i++){
+            city[i].style.display = "inline";
+        }
+    }
+</script>
+
+</html>
