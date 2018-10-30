@@ -18,32 +18,32 @@
 
   <body>
 
-<div id="top-header" class="">
-    <div id="phone-info">
-        <a href="tel: 814-380-3473">
-            <span id="phone-info-phone">
-                814-380-3473
-            </span>
-        </a>
-    </div>
-</div>
-
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand"><h4>Call Steven Today at</h4><a href="tel:814-380-3473">814-380-3473</a> </a>
+      <!--<div id="top-header" class="">
+            <div id="phone-info">
+                <a href="tel: 814-380-3473">
+                    <span id="phone-info-phone">
+                        814-380-3473
+                    </span>
+                </a>
+            </div>
+        </div>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+     
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <!--<li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link disabled" href="#">Photo Gallery</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -52,20 +52,54 @@
               <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
-          </li>
+          </li>-->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <div class="navbar-address" href="#">
+            <p><h4>123 Main Street Bellefonte PA</h4></p>
+        </div>
+        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form>-->
       </div>
     </nav>
+    <br />
+    <div class="logo">
+        <img src="jabcos.jpg" alt="Jabco's Custom Lawn Care LLC" style="width:200px; height:170px">
+    </div>
 
     <main role="main" class="container">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Jabco's Lawn Care is the best in the county!">
+            Popover on top
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Jabco's Lawn Care Modal
+        </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- If you take out the fade, it won't fade in-->
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Steven Jabco's Lawn Care</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <img id="modalPic" src="jabcos.jpg" alt="Jabco's Custom Lawn Care LLC">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" onclick="nextPicture()">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>Jabco's Custom Lawn Care LLC</h1>
+        <p class="lead">At Jabco’s Custom Lawn Care, we deliver top quality lawn and landscape services that you can count on. We currently service Bellefonte, PA and other surrounding areas such as State College and Zion. Click to call below to request your price quote today. </p>
       </div>
 
     </main><!-- /.container -->
@@ -78,4 +112,15 @@
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
+  <script>
+        function nextPicture() {
+            let image = document.getElementById("modalPic");
+            image.src = "lawn.jpg";
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
+    </script>
 </html>
