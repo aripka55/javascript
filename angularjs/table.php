@@ -9,9 +9,9 @@ $output = "";
 
 while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($output != "") {$output .= ",";}
-    $output .= '{"First Name":"'  . $row["first_name"] . '",';
-    $output .= '"Last Name":"'   . $row["last_name"]        . '",';
-    $output .= '"City":"'. $row["city"]     . '"}';
+    $output .= '{"firstName":"'  . $row["first_name"] . '",';
+    $output .= '"lastName":"'   . $row["last_name"]        . '",';
+    $output .= '"city":"'. $row["city"]     . '"}';
 }
 
 $output = '{"records":[' .$output.']}';
