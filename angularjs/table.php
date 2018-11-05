@@ -1,10 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-//header("Content-Type: application/json; charset=UTF-8");
+header("Content-Type: application/json; charset=UTF-8");
 
-$conn = new msqli("localhost", "andrew", "southhills#", "andrew");
+$conn = new mysqli("localhost", "andrew", "southhills#", "andrew");
 
-$result = $conn->query("SELECT userid, first_name, last_name, city FROM angular_people");
+$result = $conn->query("SELECT first_name, last_name, city FROM angular_people");
 $output = "";
 
 while($row = $result->fetch_array(MYSQLI_ASSOC)) {
