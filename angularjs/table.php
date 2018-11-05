@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 
 $conn = new msqli("localhost", "andrew", "southhills#", "andrew");
 
-$result = $conn->query("SELECT user_id, first_name, last_name, city FROM angular_people");
+$result = $conn->query("SELECT userid, first_name, last_name, city FROM angular_people");
 $output = "";
 
 while($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -14,7 +14,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     $output .= '"City" "'. $row["city"]     . '"}';
 }
 
-$output = '{"Angular People":[' .$output.']}';
+$output = '{"records":[' .$output.']}';
 $conn->close();
 
 echo($output);
