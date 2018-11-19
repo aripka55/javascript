@@ -46,3 +46,20 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 $sql = "SELECT * FROM todolist";
 $result = $conn->query($sql);
 ?>
+
+<?php
+// Updating the list of Tasks
+require('dbconnection.php');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$_POST = json_decode(file_get_contents('php://input'), true);
+$updatingTask = $_POST['tasks'];
+$updatingId = $_POST['listid'];
+
+$sql = "UPDATE todolist SET tasks = ('$updatingTask') WHERE listid = ('$updatingId')";
+
+$result = $conn->query($sql);
+?>
