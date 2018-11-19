@@ -1,4 +1,3 @@
-//Since the Add button does not have a class or id, grab all the buttons
 let myButtons = document.getElementsByTagName("button");
 
 //Add button is the first of the buttons, so we can grab that one
@@ -10,125 +9,135 @@ addButton.onclick = function () { addToDoItem() };
 //Create a function to add the todo item
 function addToDoItem() {
 
-//Grab the <ul>
-let incompleteUl = document.getElementById("incomplete-tasks");
+    //Grab the <ul>
+    let incompleteUl = document.getElementById("incomplete-tasks");
 
-//Create the child <li> object
-let incompleteLi = document.createElement("li");
+    //Create the child <li> object
+    let incompleteLi = document.createElement("li");
 
-//Create the child <input> for checkbox
-let incompleteInputCheckbox = document.createElement("input");
+    //Create the child <input> for checkbox
+    let incompleteInputCheckbox = document.createElement("input");
 
-//Create and set type attribute for <input>
-incompleteInputCheckbox.setAttribute("type","checkbox");
-incompleteInputCheckbox.onclick = function () { addToCompleteLi(this) };
+    //Create and set type attribute for <input>
+    incompleteInputCheckbox.setAttribute("type","checkbox");
 
-//incompleteInputCheckbox.setAttribute("onclick", "addToCompleteLi(this)");
-//Create the child <label> object
-let incompleteLabel = document.createElement("label");
+    //Create and set the checkbox function to move task to completed section
+    incompleteInputCheckbox.onclick = function() {addtoCompeleteLi(this)};
 
-//Grab the Add textbox value and set it as text of <label>
-let addText = document.getElementById("new-task").value;
-document.getElementById("new-task").value = "";
-incompleteLabel.innerHTML = addText;
+    //Create the child <label> object
+    let incompleteLabel = document.createElement("label");
 
-//Create the child <input> for the textbox and set attribute
-let incompleteInputTextbox = document.createElement("input");
-incompleteInputTextbox.setAttribute("type","text");
+    //Grab the Add textbox value and set it as text of <label>
+    let addText = document.getElementById("new-task").value;
+    document.getElementById("new-task").value = "";
+    incompleteLabel.innerHTML = addText;
 
-//Create the child <button> for edit
-let incompleteButtonEdit = document.createElement("button");
-incompleteButtonEdit.setAttribute("class","edit"); //Creates class="edit"
+    //Create the child <input> for the textbox and set attribute
+    let incompleteInputTextbox = document.createElement("input");
+    incompleteInputTextbox.setAttribute("type","text");
 
-//incompleteButtonEdit.setAttribute("onclick", "editLi(this)");
-incompleteButtonEdit.onclick = function () { editLi(this) };
-incompleteButtonEdit.innerHTML = "Edit"; //Creates the Edit text for the button
+    //Create the child <button> for edit
+    let incompleteButtonEdit = document.createElement("button");
+    incompleteButtonEdit.setAttribute("class","edit"); //Creates class="edit"
 
-//Create the child <button> for delete
-let incompleteButtonDelete = document.createElement("button");
-incompleteButtonDelete.setAttribute("class","delete"); //Creates class="edit"
-incompleteButtonDelete.setAttribute("onclick","deleteLi(this)");
-incompleteButtonDelete.innerHTML = "Delete"; //Creates the Edit text for the button
+    //incompleteButtonEdit.setAttribute("onclick", "editLi(this)");
+    incompleteButtonEdit.onclick = function () { editLi(this) };
+    incompleteButtonEdit.innerHTML = "Edit"; //Creates the Edit text for the button
 
-//Append the child <input> checkbox to <li>
-incompleteLi.appendChild(incompleteInputCheckbox);
+    //Create the child <button> for delete
+    let incompleteButtonDelete = document.createElement("button");
+    incompleteButtonDelete.setAttribute("class","delete"); //Creates class="edit"
+    incompleteButtonDelete.setAttribute("onclick","deleteLi(this)");
+    incompleteButtonDelete.innerHTML = "Delete"; //Creates the Edit text for the button
 
-//Append the child <label> to the <li>
-incompleteLi.appendChild(incompleteLabel);
+    //Append the child <input> checkbox to <li>
+    incompleteLi.appendChild(incompleteInputCheckbox);
 
-//Append the child <input> checkbox to <li>
-incompleteLi.appendChild(incompleteInputTextbox);
+    //Append the child <label> to the <li>
+    incompleteLi.appendChild(incompleteLabel);
 
-//Append the children <button> edit and then delete to <li>
-incompleteLi.appendChild(incompleteButtonEdit);
-incompleteLi.appendChild(incompleteButtonDelete);
+    //Append the child <input> checkbox to <li>
+    incompleteLi.appendChild(incompleteInputTextbox);
 
-//Append the child <li> to the <ul>
-incompleteUl.appendChild(incompleteLi);
-}
+    //Append the children <button> edit and then delete to <li>
+    incompleteLi.appendChild(incompleteButtonEdit);
 
-//Create the delete li function
+    incompleteLi.appendChild(incompleteButtonDelete);
+    //Append the child <li> to the <ul>
+
+    incompleteUl.appendChild(incompleteLi);
+}//addto function
+
+
+    //Create the delete li function
 function deleteLi(item) {
-
-//Grab parent <li>
-let li = item.parentNode;
-
-//Grab parent <ul>
-let ul = li.parentNode;
-
-//Remove the child from parent
-ul.removeChild(li);
-}
+    //Grab parent <li>
+    let li = item.parentNode;
+    ul = li.parentNode;
+    //Remove the child from parent
+    ul.removeChild(li);
+}//end delteli function
 
 function editLi(item) {
-//Figure out what <li> to change
-let li = item.parentNode;
-// Change the <li> class to "edit"
-li.setAttribute("class","editMode");
-// Get the innerHTML of the label
-let labelText = li.childNodes[1].innerHTML;
-// Put the labels text into the value of the textbox
-let textBox = li.childNodes[2];
-//textBox.value = labelText;
-textBox.setAttribute("value", labelText);
-//Change the edit button's text to save
-item.innerHTML = "Save";
-//Change onclick event for Save button
-item.onclick = function () { saveLi() };
-}
+    //Figure out what <li> to change
+    let li = item.parentNode;
+    // Change the <li> class to "edit"
+    li.setAttribute("class","editMode");
+    // Get the innerHTML of the label
+    let labelText = li.childNodes[1].innerHTML;
+    // Put the labels text into the value of the textbox
+    let textBox = li.childNodes[2];
+    //textBox.value = labelText;
+    textBox.setAttribute("value", labelText);
+    //change the edit buttons text to save
+    item.innerHTML ="Save";
+    //change onclick event fo r save button
+    item.onclick = function() {saveLi(this)};
+}//end editli function
 
-function addToCompleteLi(item) {
+function addtoCompeleteLi(item){
 
-//Get the <ul> of completed tasks
-let ul = document.getElementById("completed-tasks");
+    //get the <ul> of completed tasks
+    ul = document.getElementById("completed-tasks");
 
-//Get the <li> of the checkbox item
-let moveChild = item.parentNode;
+    //get the <li> for child
+    let moveChild = item.parentNode;
 
-//Append child to new <ul>
-ul.appendChild(moveChild);
+    //append child to new <l>
+    ul.appendChild(moveChild);
 
-//set onclick event to addToIncompleteLi
-item.onclick = function () { addToIncompleteLi(this) };
-}
+    //set onclick even to set to asstoinconplete li
+    item.onclick = function() {addtoIncompleteCompeleteLi(this)};
 
-function addToIncompleteLi(item) {
-  //Get the <ul> of completed tasks
-  let ul = document.getElementById("incomplete-tasks");
-  //Get the <li> of the checkbox item
-  let moveChild = item.parentNode;
-  //Append child to new <ul>
-  ul.appendChild(moveChild);
-  //set onclick event to addToIncompleteLi
-  item.onclick = function () { addToIncompleteLi(this) };
-}
+}//end addtocompletli
 
-function saveLi () {
-  // Remove edit mode class from li
+function addtoIncompleteCompeleteLi(item){
 
-  // Labels innerHTML needs to be changed to value of textbox
+    ul = document.getElementById("incomplete-tasks");
 
-  // Remove value of textbox 
+    let moveChild = item.parentNode;
 
-  // Edit button innerHTML needs to say edit instead of save
+    ul.appendChild(moveChild);
+
+    item.onclick = function() {addtoCompeleteLi(this)};
+
+
+}//end addtoincompleteli
+
+function saveLi (item) {
+
+    let li = item.parentNode;
+
+    li.setAttribute("class","");
+
+    labelText = li.childNodes[1];
+
+    textBox = li.childNodes[2].value;
+
+    labelText.innerHTML= textBox;
+
+    item.innerHTML ="Edit";
+
+    item.onclick = function() {editLi(this)};
+
 }
