@@ -14,7 +14,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 $deletingTask = $_POST['tasks'];
 $deleting_id = $_POST['listid'];
 
-$sql = "DELETE FROM todolist WHERE list_id = ('$deleteing_id')";
+$sql = "DELETE FROM todolist WHERE listid = ('$deleteing_id')";
 
 $result = $conn->query($sql);
 ?>
@@ -23,12 +23,12 @@ $result = $conn->query($sql);
 // Getting the Task
 require('dbconnection.php'); 
 
-if(isset($_GET['task'])){
-    $task = $_GET['task'];
+if(isset($_GET['tasks'])){
+    $task = $_GET['tasks'];
     $status = "0";
     $created = time();
 
-    $query="INSERT INTO todolist(tasks,status)  VALUES ('$tasks', '$status', '$creat')";
+    $query="INSERT INTO todolist(tasks,status)  VALUES ('$tasks', '$status', '$creating')";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     $result = $mysqli->affected_rows;
     echo $json_response = json_encode($result);
